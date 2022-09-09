@@ -19,7 +19,7 @@ int primo(int n){
     }
     long long int x = 0;
 
-    #pragma omp paralel for reduction (+:x)
+    #pragma omp parallel for reduction (+:x)
     for(long long int i = 1; i < n; i++){
         if(n % i == 0){
             x++;
@@ -39,16 +39,19 @@ int main()
 
     tempo_1 = omp_get_wtime();
 
+    omp_set_num_threads(8);
 
-    #pragma omp paralel for reduction (+:sum)
-    for(i = INICIO; i <= LIMITE; i++){
-        if(primo(i)){
-            printf("%lld ", i);
-            cont++;
-            sum+=i;
+    #pragma omp parallel
+    {
+        #pragma omp for schedule(dynamic,1)
+        for(i = INICIO; i <= LIMITE; i++){
+            if(primo(i)){
+                printf("%lld ", i);
+                cont++;
+                sum+=i;
+            }
         }
     }
-
     tempo_2 = omp_get_wtime();
 
     printf("\nNumero de primos: %lld", cont);
