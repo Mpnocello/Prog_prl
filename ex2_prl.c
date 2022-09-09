@@ -38,6 +38,8 @@ int main()
 
     tempo_1 = omp_get_wtime();
 
+
+    #pragma omp paralel for
     for(i = INICIO; i <= LIMITE; i++){
         if(primo(i)){
             printf("%lld ", i);

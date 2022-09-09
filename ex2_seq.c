@@ -1,3 +1,10 @@
+// Gere um relatório de performance de uma solução sequencial
+// e paralela para o seguinte problema:
+
+// Mostre quais, quantos e o somatório de todos números primos entre 
+// 100 e 1000000000
+
+
 #include <stdio.h>
 #include <stdlib.h>
 #include "omp.h"
@@ -25,8 +32,7 @@ int main()
 
     long long int sum = 0, cont = 0, i;
     long long int INICIO = 100; 
-    long long int LIMITE = 100000;
-    //long long int LIMITE = 1000000000;
+    long long int LIMITE = 1000000;
 
     tempo_1 = omp_get_wtime();
 
