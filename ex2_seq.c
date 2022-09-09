@@ -32,7 +32,8 @@ int main()
 
     long long int sum = 0, cont = 0, i;
     long long int INICIO = 100; 
-    long long int LIMITE = 1000000;
+    //long long int LIMITE = 1000000;
+    long long int LIMITE = 10000;
 
     tempo_1 = omp_get_wtime();
 

@@ -11,6 +11,7 @@
 #include <string.h>
 
 
+
 int primo(int n){
 
     if(n==1){
@@ -18,7 +19,7 @@ int primo(int n){
     }
     long long int x = 0;
 
-    #pragma omp paralel for
+    #pragma omp paralel for reduction (+:x)
     for(long long int i = 1; i < n; i++){
         if(n % i == 0){
             x++;
@@ -39,7 +40,7 @@ int main()
     tempo_1 = omp_get_wtime();
 
 
-    #pragma omp paralel for
+    #pragma omp paralel for reduction (+:sum)
     for(i = INICIO; i <= LIMITE; i++){
         if(primo(i)){
             printf("%lld ", i);
