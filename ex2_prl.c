@@ -34,12 +34,12 @@ int main()
 
     long long int sum = 0, cont = 0, i;
     long long int INICIO = 100; 
-    long long int LIMITE = 100000;
+    long long int LIMITE = 1000000;
     //long long int LIMITE = 1000000000;
 
     tempo_1 = omp_get_wtime();
 
-    omp_set_num_threads(8);
+    omp_set_num_threads(4);
 
     #pragma omp parallel
     {
