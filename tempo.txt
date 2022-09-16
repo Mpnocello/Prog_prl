@@ -1,0 +1,2 @@
+Sequencial de 1 até 100: 21 segundos
+Paralelo de 1 até 100: 4 segundos
